@@ -4,6 +4,20 @@ import os
 def cls():
     os.system('cls')
 
+def get_data():
+    action = input("Podaj działanie, posługując się odpowiednią liczbą: 1 Dodawanie, 2 Odejmowanie, 3 Mnożenie, 4 Dzielenie: ")
+
+    if (action == '1'):
+        addition()
+    elif (action == '2'):
+        subtraction()
+    elif (action == '3'):
+        multiplication()
+    elif (action == '4'):
+        division()
+    else:
+        print("Podaj poprawną wartość")
+
 def addition():
     numbers_table = []
     result = 0
@@ -39,25 +53,6 @@ def division():
     else:
         print("Nie można dzielić przez 0")
 
-def main():
-    
-    cls()
-
-    action = input("Podaj działanie, posługując się odpowiednią liczbą: 1 Dodawanie, 2 Odejmowanie, 3 Mnożenie, 4 Dzielenie: ")
-
-    if (action == '1'):
-        addition()
-    elif (action == '2'):
-        subtraction()
-    elif (action == '3'):
-        multiplication()
-    elif (action == '4'):
-        division()
-    else:
-        print("Podaj poprawną wartość")
-    
-    again()
-
 def again():
     run_again = input("Jeszcze raz? T/N ")
 
@@ -69,6 +64,13 @@ def again():
     else:
         again()
 
+def main():
+    
+    cls()
+
+    get_data()
+    
+    again()
 
 
 main()
