@@ -18,15 +18,17 @@ def get_data():
     else:
         print("Podaj poprawną wartość")
 
-def addition():
+def get_quantity():
     numbers_table = []
-    result = 0
     quantity = int(input("Ile liczb chcesz podać? "))
     for number in range (1, quantity+1):
         number = float(input("Podaj składnik %s: " % number))
         numbers_table.append(number)
-    for num in range (quantity):
-        result = numbers_table[num] + result
+    return numbers_table
+
+def addition():
+    numbers_table = get_quantity()
+    result = sum(numbers_table)
     print(f"""Suma podanych liczb wynosi {result}""")
 
 def subtraction():
@@ -35,14 +37,10 @@ def subtraction():
     print(f"""Różnica {a} i {b} wynosi {a-b}""") 
 
 def multiplication():
-    numbers_table = []
-    result = 1
-    quantity = int(input("Ile liczb chcesz podać? "))
-    for number in range (1, quantity+1):
-        number = float(input("Podaj składnik %s: " % number))
-        numbers_table.append(number)
-    for num in range (quantity):
-        result = numbers_table[num] * result
+    result = 1.0
+    numbers_table = get_quantity()
+    for num in range(len(numbers_table)):
+        result = numbers_table[num] * result 
     print(f"""Iloczyn podanych liczb wynosi {result}""")
 
 def division():
